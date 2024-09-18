@@ -19,15 +19,13 @@ http.createServer(function (req, res) {
     else if (req.url === '/route4') {
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
 
-        fs.readFile('./index.html', 'utf8', function (err, html) {
-            if (err) {
-                res.statusCode = 500;
-                console.error(err);
-            } else {
-                console.log(html);
-                res.write(html); // TODO: This doesn't work
-            }
-        });
+        try {
+            const html = fs.readFileSync('./index.html', 'utf8');
+            res.write(html);
+        } catch (e) {
+            res.statusCode = 500;
+            console.error(e);
+        }
     } else {
         res.statusCode = 404;
         res.setHeader('Content-Type', 'text/plain; charset=utf-8');
