@@ -1,6 +1,7 @@
-const http = require('http'),
-    fs = require('fs'),
-    url = require('url');
+import http from 'http';
+import fs from 'fs';
+import url from 'url';
+import { findFile } from "./find_file.js";
 
 http.createServer(function (req, res) {
     const parsedUrl = url.parse(req.url, true);
@@ -31,9 +32,7 @@ http.createServer(function (req, res) {
         fs.writeFileSync(`./params_${Date.now()}.json`, JSON.stringify(parsedUrl.query));
         res.write(JSON.stringify({"ok": "ok"}));
     } else {
-        res.statusCode = 404;
-        res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-        res.write('Not Found');
+        findFile('assets/' + parsedUrl.pathname, res);
     }
 
     res.end();
