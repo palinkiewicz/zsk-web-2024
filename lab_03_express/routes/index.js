@@ -28,7 +28,7 @@ router.get('/kontakt', function(req, res, next) {
   sendView('contact.html', res);
 });
 
-router.post('/kontakt-data', function(req, res, next) {
+router.post('/kontakt', function(req, res, next) {
   console.log(req.body);
   res.redirect('/');
 });
