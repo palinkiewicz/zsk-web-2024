@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('node:path');
 const fs = require('fs');
-const mysql = require('mysql');
+const axios = require('axios');
 const router = express.Router();
 
 function sendView(viewFile, res) {
@@ -29,8 +29,19 @@ router.get('/kontakt', function(req, res, next) {
   sendView('contact.html', res);
 });
 
-router.post('/kontakt', function(req, res, next) {
+router.post('/kontakt', async function(req, res, next) {
   console.log(req.body);
+
+  try {
+    await axios.post('http://localhost:3000/api/contact-messages', req.body, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  } catch (error) {
+    console.error('Error:', error);
+  }
+
   res.redirect('/');
 });
 

@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use('/static', express.static(path.join(__dirname, 'public/static')));
 
-app.use('/', indexRouter);
 app.use('/api', apiRouter);
+app.use('/', indexRouter);
 
 module.exports = app;
