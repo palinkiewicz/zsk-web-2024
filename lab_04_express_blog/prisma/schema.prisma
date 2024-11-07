@@ -18,7 +18,7 @@ model Post {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   title      String   @db.VarChar(255)
-  content    String?
+  content    String?  @db.Text
   published  Boolean  @default(false)
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId Int
@@ -26,14 +26,14 @@ model Post {
 
 model Category {
   id          Int     @id @default(autoincrement())
-  title       String
-  description String?
-  Post        Post[]
+  title       String  @db.VarChar(255)
+  description String? @db.Text
+  posts       Post[]
 }
 
 model Comment {
   id        Int      @id @default(autoincrement())
-  author    String
-  text      String
+  author    String   @db.VarChar(255)
+  text      String   @db.Text
   createdAt DateTime @default(now())
 }

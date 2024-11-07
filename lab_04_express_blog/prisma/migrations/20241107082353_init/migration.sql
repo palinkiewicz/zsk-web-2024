@@ -4,7 +4,7 @@ CREATE TABLE `Post` (
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
     `title` VARCHAR(255) NOT NULL,
-    `content` VARCHAR(191) NULL,
+    `content` TEXT NULL,
     `published` BOOLEAN NOT NULL DEFAULT false,
     `categoryId` INTEGER NOT NULL,
 
@@ -14,8 +14,8 @@ CREATE TABLE `Post` (
 -- CreateTable
 CREATE TABLE `Category` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `title` VARCHAR(191) NOT NULL,
-    `description` VARCHAR(191) NULL,
+    `title` VARCHAR(255) NOT NULL,
+    `description` TEXT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -23,8 +23,8 @@ CREATE TABLE `Category` (
 -- CreateTable
 CREATE TABLE `Comment` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `author` VARCHAR(191) NOT NULL,
-    `text` VARCHAR(191) NOT NULL,
+    `author` VARCHAR(255) NOT NULL,
+    `text` TEXT NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     PRIMARY KEY (`id`)
