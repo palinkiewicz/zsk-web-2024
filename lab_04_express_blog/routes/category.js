@@ -1,10 +1,10 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const { PrismaClient } = require("@prisma/client");
+const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
     const { title, description } = req.body;
 
     try {
@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
     }
 });
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const categories = await prisma.category.findMany();
 
@@ -31,7 +31,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.get("/:id(\\d+)", async (req, res) => {
+router.get('/:id(\\d+)', async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -49,7 +49,7 @@ router.get("/:id(\\d+)", async (req, res) => {
     }
 });
 
-router.put("/:id(\\d+)", async (req, res) => {
+router.put('/:id(\\d+)', async (req, res) => {
     const { id } = req.params;
     const { title, description } = req.body;
 
@@ -68,7 +68,7 @@ router.put("/:id(\\d+)", async (req, res) => {
     }
 });
 
-router.delete("/:id(\\d+)", async (req, res) => {
+router.delete('/:id(\\d+)', async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -76,7 +76,7 @@ router.delete("/:id(\\d+)", async (req, res) => {
             where: { id: parseInt(id, 10) },
         });
 
-        res.json({ message: "Category deleted successfully" });
+        res.json({ message: 'Category deleted successfully' });
     } catch (error) {
         res.sendStatus(500);
     }

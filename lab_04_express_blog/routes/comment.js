@@ -1,10 +1,10 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const { PrismaClient } = require("@prisma/client");
+const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
     const { author, text, postId } = req.body;
     try {
         const newComment = await prisma.comment.create({
@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
     }
 });
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const comments = await prisma.comment.findMany({
             include: { post: true },
@@ -31,7 +31,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.get("/:id(\\d+)", async (req, res) => {
+router.get('/:id(\\d+)', async (req, res) => {
     const { id } = req.params;
     try {
         const comment = await prisma.comment.findUnique({
@@ -48,7 +48,7 @@ router.get("/:id(\\d+)", async (req, res) => {
     }
 });
 
-router.put("/:id(\\d+)", async (req, res) => {
+router.put('/:id(\\d+)', async (req, res) => {
     const { id } = req.params;
     const { author, text, postId } = req.body;
     try {
@@ -66,7 +66,7 @@ router.put("/:id(\\d+)", async (req, res) => {
     }
 });
 
-router.delete("/:id(\\d+)", async (req, res) => {
+router.delete('/:id(\\d+)', async (req, res) => {
     const { id } = req.params;
     try {
         await prisma.comment.delete({
