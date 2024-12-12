@@ -1,14 +1,21 @@
-import { Route, Routes } from "react-router"
+import { Route, Routes, Link } from "react-router"
 import Home from './pages/Home.tsx'
-import About from './pages/About.tsx'
-import Help from './pages/Help.tsx'
+import CategoryList from './pages/CategoryList.tsx'
+import Post from './pages/Post.tsx'
 
 export default function App() {
   return (
-    <Routes>
-      <Route index element={ <Home /> } />
-      <Route path="about" element={ <About /> } />
-      <Route path="help" element={ <Help /> } />
-    </Routes>
+    <>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="categories">Category List</Link>
+      </nav>
+      <Routes>
+        <Route index element={ <Home /> } />
+        <Route path="categories" element={ <CategoryList /> } />
+        <Route path="post/:id" element={ <Post /> } />
+      </Routes>
+      <footer>Author: palinkiewicz</footer>
+    </>
   )
 }
