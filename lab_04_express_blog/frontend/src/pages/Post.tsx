@@ -7,7 +7,7 @@ export default function Post() {
     return (
         <div className="post-view">
             <div className="post-data">
-                <h1>Post title will be here ID: ${id}</h1>
+                <h1>Post title will be here ID: {id}</h1>
                 <h6>DD-MM-YYYY HH24:MI</h6>
                 <p>Post body.</p>
             </div>
