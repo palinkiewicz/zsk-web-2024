@@ -1,13 +1,12 @@
 import { Route, Routes } from 'react-router'
-import './App.css'
-import PostList from './pages/PostList'
-import Post from './pages/Post'
+import PostList from './pages/PostListView'
+import PostView from './pages/PostView'
 
 function App() {
   return (
     <Routes>
       <Route index element={ <PostList /> }></Route>
-      <Route path='post/:id' element={ <Post /> }></Route>
+      <Route path='post/:id' element={ <PostView /> }></Route>
     </Routes>
   )
 }
