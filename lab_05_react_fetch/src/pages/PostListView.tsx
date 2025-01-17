@@ -22,9 +22,10 @@ export default function PostList() {
 
     return (
         <>
-            {loading && <p>Loading...</p>}
-            {!loading && posts.length === 0 && <p>No posts found</p>}
-            <ul>
+            <h1>Pretty simple post site</h1>
+            {loading && <p className="loading">Loading...</p>}
+            {!loading && posts.length === 0 && <p className="not-found">No posts found</p>}
+            <ul className="post-list">
                 {posts?.map((post: Post, idx: number) =>
                     <li key={`post-${idx}`}>
                         <h3>{post.title}</h3>

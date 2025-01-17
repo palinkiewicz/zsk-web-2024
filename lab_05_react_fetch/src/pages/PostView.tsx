@@ -41,17 +41,18 @@ export default function PostView() {
 
     return (
         <>
+            <h1>Pretty simple post details</h1>
             <a href='/'>Back to the posts' list</a>
-            {loadingPost && <p>Loading post...</p>}
-            {!loadingPost && post?.id === null && <p>Post not found</p>}
-            {post?.id !== null && <div>
-                <h6>Post:</h6>
+            {loadingPost && <p className="loading">Loading post...</p>}
+            {!loadingPost && post?.id === null && <p className="not-found">Post not found</p>}
+            {post?.id !== null && <div className="post-view">
+                <h2>Post:</h2>
                 <h3>{post?.title}</h3>
                 <p>{post?.body}</p>
             </div>}
-            {loadingUser && <p>Loading user...</p>}
-            {user?.id !== null && <div>
-                <h6>User:</h6>
+            {loadingUser && <p className="loading">Loading user...</p>}
+            {user?.id !== null && <div className="user-view">
+                <h2>User:</h2>
                 <h3>{user?.name}</h3>
                 <h4>{user?.username}</h4>
                 <h5>{user?.email}</h5>
