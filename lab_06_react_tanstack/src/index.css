@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1, h1 + a, .loading, .not-found {
+  padding: 0 16px;
+}
+
+.post-list {
+  margin: 0;
+  padding: 0;
+}
+
+.post-list > li, .post-view, .user-view {
+  list-style: none;
+  margin: 16px;
+  padding: 16px;
+  border: 1px dashed black;
+  border-radius: 8px;
+}
+
+.post-list > li > h3, .post-view > h2, .user-view > h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.post-view > p:last-child, .user-view > p:last-child {
+  margin-bottom: 0;
+}
+
+.post-list > li > a {
+  text-decoration: none;
+}
+
+.post-list > li > a:hover {
+  text-decoration: underline;
+}
