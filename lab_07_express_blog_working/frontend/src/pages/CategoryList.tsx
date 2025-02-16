@@ -1,17 +1,17 @@
+import { useCategories } from "../api/api";
+
 export default function CategoryList() {
-    const categories = [
-        { name: "Electronics", description: "Explore the world of gadgets and technology." },
-        { name: "Communication", description: "Dive into the art of connecting with others." },
-        { name: "Geography", description: "Learn about our planet and its features." },
-    ];
+    const categories = useCategories();
 
     return (
         <div className="category-list-view">
             <h1>Categories</h1>
             <div className="categories-container">
-                {categories.map((category, index) => (
+                {categories.isLoading && <h3>Loading...</h3>}
+                {categories.isError && <h3>Error occurred.</h3>}
+                {categories.data?.map((category, index) => (
                     <div className="category-entry" key={`cat${index}`}>
-                        <h3>{ category.name }</h3>
+                        <h3>{ category.title }</h3>
                         <p>{ category.description }</p>
                     </div>
                 ))}
