@@ -6,9 +6,9 @@ class Student:
         self.first_name: str = first_name
         self.last_name: str = last_name
         self.birth_date: date = birth_date
-    
+
     def age(self) -> int:
         return datetime.now().year - self.birth_date.year
 
     def __str__(self) -> str:
-        return f'${self.first_name} ${self.last_name} ${self.age()}'
+        return f'{self.first_name} {self.last_name} ({self.age()})'
