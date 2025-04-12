@@ -1,3 +1,6 @@
+__copyright__ = 'Zespół Szkół Komunikacji'
+__author__ = 'Adam Palinkiewicz 4C'
+
 class Teacher:
     def __init__(self, id: int, name: str, surname: str) -> None:
         self._id: int = id

@@ -1,3 +1,6 @@
+__copyright__ = 'Zespół Szkół Komunikacji'
+__author__ = 'Adam Palinkiewicz 4C'
+
 from .Student import Student
 from .Subject import Subject
 

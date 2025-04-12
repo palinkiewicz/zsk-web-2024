@@ -1,3 +1,6 @@
+__copyright__ = 'Zespół Szkół Komunikacji'
+__author__ = 'Adam Palinkiewicz 4C'
+
 from datetime import date, datetime
 
 class Student:
