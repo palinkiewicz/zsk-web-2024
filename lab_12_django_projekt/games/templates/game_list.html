@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lista gier</h1>
+<ul>
+    {% for game in games %}
+        <li><a href="{% url 'game_detail' game.pk %}">{{ game.title }}</a></li>
+    {% endfor %}
+</ul>
+<a class="button" href="{% url 'game_create' %}">Dodaj nową grę</a>
+{% endblock %}

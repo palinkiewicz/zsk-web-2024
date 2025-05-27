@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ game.title }}</h2>
+<p>Data wydania: {{ game.release_date }}</p>
+<p>Wydawca: {{ game.publisher.name }}</p>
+<p>Platformy:</p>
+<ul>
+    {% for platform in game.platforms.all %}
+        <li>{{ platform.name }}</li>
+    {% endfor %}
+</ul>
+<a class="button" href="{% url 'game_list' %}">Powrót do listy</a>
+{% endblock %}
